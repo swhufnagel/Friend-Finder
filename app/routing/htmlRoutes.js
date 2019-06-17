@@ -1,20 +1,11 @@
-var express = require("express");
 var path = require("path");
-var app = express();
-var routes = {
 
-survey: function(){
+module.exports = function(app){
     app.get("/survey", function (req, res) {
-    res.sendFile(path.join(__dirname, "survey.html"));
+    res.sendFile(path.join(__dirname, "../public/survey.html"));
 });
-},
 
-home: function(){
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "../public/home.html"));
 });
-}
-
-
-}
-module.exports = routes;
+};
