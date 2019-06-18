@@ -18,6 +18,8 @@ module.exports = function (app) {
 
                 var userScore = req.body.scores;
                 var friendsScore = data[i].scores;
+                
+                
                 var difference = Math.abs((parseInt(userScore[j]) - parseInt(friendsScore[j])));
                 totalDifference += difference;
                 if (j === 9) {
@@ -34,11 +36,11 @@ module.exports = function (app) {
             var lowestNum = Math.min(...totalDifferences);
             var bestMatch = totalDifferences.indexOf(lowestNum);
             var bestFriend = data[bestMatch];
-            console.log(bestFriend);
-            return bestFriend;
             }
         
+            res.json(bestFriend);
 });
+
 
 }
 
