@@ -6,12 +6,10 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// app.use(express.static(path.join(__dirname, 'app/static')));
+app.use(express.static(path.join(__dirname, 'app/static')));
 require("./app/routing/htmlRoutes.js")(app);
 require("./app/routing/apiRoutes.js")(app); 
-// app.use('/static', express.static('static'));
-app.use(express.static(__dirname + '/static'));
-
-
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });
